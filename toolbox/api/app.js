@@ -7,7 +7,7 @@ const {FileRouter} = require("./modules/file")
 const app = express();
 app.use(express.json());
 
-app.use('/files/data', FileRouter)
+app.use('/files', FileRouter)
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);

@@ -12,3 +12,17 @@ export const actionResGetInfo = (data) => {
         data: data  
     }
 }
+
+export const actionGetInfoByName = (data) => {
+    return {
+        type: actionTypes.GET_INFO_BY_NAME,
+        data: data
+    }
+}
+
+export const actionResGetInfoByName = (data) => {
+    return {
+        type: actionTypes.RES_GET_INFO_BY_NAME,
+        data: data  
+    }
+}

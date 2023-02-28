@@ -86,11 +86,14 @@ class FileService {
 
             return result;
         }, {});
-        return formattedData[Object.keys(formattedData)[0]]
+        const data = Object.values(formattedData).filter(d => d.lines && d.lines.length > 0 && d.file);
+        return data;
+        //return formattedData[Object.keys(formattedData)[0]]
     }
 
     async getExternalCsv(fileName) {
         if (!fileName) return { error: "error" }
+        
         const promise = new Promise(
             (resolve, reject) => {
                 const filePath = `/v1/secret/file/${fileName}`;
@@ -124,35 +127,6 @@ class FileService {
         )
         return promise
     }
-
-    async getFile(fileName) {
-        if (!fileName) return { error: "error" };
-        const promise = new Promise((resolve, reject) => {
-          const endpoint = "https://echo-serv.tbxnet.com/v1/secret/file/";
-          const options = {
-            hostname: "echo-serv.tbxnet.com",
-            path: endpoint + "?fileName=" + fileName,
-            method: "GET",
-            headers: {
-              Authorization: "Bearer aSuperSecretKey",
-            },
-          };
-          const request = https.request(options, (response) => {
-            let data = "";
-            response.on("data", (chunk) => {
-              data += chunk;
-            });
-            response.on("end", () => {
-              resolve(JSON.parse(data));
-            });
-          });
-          request.on("error", (error) => {
-            reject(error);
-          });
-          request.end();
-        });
-        return promise;
-      }
 }
 
 module.exports = new FileService()

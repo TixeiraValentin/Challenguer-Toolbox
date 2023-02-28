@@ -1,4 +1,8 @@
 export const actionTypes = {
+    //GET INFO
     GET_INFO: 'GET_INFO',
     RES_GET_INFO: "RES_GET_INFO",
+    //GET INFO BY NAME
+    GET_INFO_BY_NAME: "GET_INFO_BY_NAME" ,
+    RES_GET_INFO_BY_NAME: "RES_GET_INFO_BY_NAME",
 }
