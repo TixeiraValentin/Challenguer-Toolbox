@@ -1,0 +1,18 @@
+{
+  "name": "toolbox-challenguer",
+  "version": "1.0.0",
+  "description": "Challenguer for ToolBox",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "mocha"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0"
+  }
+
+}

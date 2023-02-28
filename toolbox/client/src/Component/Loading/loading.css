@@ -1,0 +1,8 @@
+.containerLoading{
+    color: red;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    height: 50vh;
+}
