@@ -86,9 +86,7 @@ class FileService {
 
             return result;
         }, {});
-        const data = Object.values(formattedData).filter(d => d.lines && d.lines.length > 0 && d.file);
-        return data;
-        //return formattedData[Object.keys(formattedData)[0]]
+        return formattedData[Object.keys(formattedData)[0]]
     }
 
     async getExternalCsv(fileName) {

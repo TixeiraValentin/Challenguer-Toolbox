@@ -44,15 +44,7 @@ export default function Home() {
   function handleChange(e) {
     const newSelectedValue = e.target.value;
     setSelectedValue(newSelectedValue)
-    
-    // if (selectedValue === "FileName") {
-    //   dispatch(actionGetInfo());
-    // } else {
-    //   dispatch(actionGetInfoByName(newSelectedValue));
-    // }
   }
-  console.log(selectedValue, "soy selected value")
-  console.log(filteredArray, "filteredArray");
 
   return (
     <>
@@ -79,8 +71,8 @@ export default function Home() {
           </tr>
         </thead>
         <tbody>
-        {selectedValue === "FileName"
-          ? filesArray.map((file, fileIndex) =>
+        {selectedValue === "FileName" ? 
+        filesArray.map((file, fileIndex) =>
               file.lines &&
               file.lines.map((line, lineIndex) => (
                 <tr key={`${fileIndex}-${lineIndex}`}>
@@ -91,7 +83,7 @@ export default function Home() {
                 </tr>
               ))
             )
-          : filteredArray && filteredArray.lines.map((line, lineIndex) => (
+          : filteredArray.length > 0 && filteredArray[0].lines.map((line, lineIndex) => (
               <tr key={`${lineIndex}`}>
                 <td>{filteredArray.file}</td>
                 <td>{line.text}</td>
