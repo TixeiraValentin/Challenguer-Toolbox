@@ -28,10 +28,6 @@ export default function Home() {
   }, [selectedValue, dispatch]);
 
   useEffect(() => {
-    dispatch(actionGetInfo());
-  }, [dispatch]);
-
-  useEffect(() => {
     if (filesArray.length > 0) {
       setLoading(false);
     }
@@ -60,6 +56,7 @@ export default function Home() {
                 <option value="FileName">File Name</option>
                 {filesArray.map((file, i) => (
                   <option key={i} value={file.file}>
+                    {console.log(file)}
                     {file.file}
                   </option>
                 ))}
@@ -85,7 +82,7 @@ export default function Home() {
             )
           : filteredArray.length > 0 && filteredArray[0].lines.map((line, lineIndex) => (
               <tr key={`${lineIndex}`}>
-                <td>{filteredArray.file}</td>
+                <td>{filteredArray[0].file}</td>
                 <td>{line.text}</td>
                 <td>{line.number}</td>
                 <td>{line.hex}</td>
